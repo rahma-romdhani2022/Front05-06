@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+ <title>Welcome</title>
+</head>
+<body>
+              
+
+
+ <section id="rahmaaCards" *ngIf="avisService.lengthDemandePrincipale !==0; else pageVide">
+    <div class="container p-5">
+      <div class="row mt-4" >
+        <div class="col-lg-3 mt-4"  *ngFor="let demande of allDemandes">
+            <div class="card"  style="height: 153px;width: 250px;border-radius: 21px;" >
+                <!--img src="./assets/imagesD/faces/user1.png" id="imgPAtient" width="50px" height="50px"-->
+                <a  id="username">{{demande.patient.username }}</a>
+ <h2 class="dateDemande"> il ya &nbsp;{{demande.decalageHoraire}} </h2>
+
+<a *ngIf="demande.demandeAvisD === 0 && demande.demandeAvisG === 1 "
+routerLink="/demande_gauche/{{demande.id}}"><img src="./assets/imagesD/faces/msgg.png"  id="iconeSend" alt=""></a>
+
+
+<a  *ngIf="demande.demandeAvisD === 1 &&  demande.demandeAvisG === 0 "
+ routerLink="/demande_droite/{{demande.id}}"><img src="./assets/imagesD/faces/msgg.png"  id="iconeSend" alt=""></a>
+
+<a *ngIf="demande.demandeAvisD === 1  && demande.demandeAvisG === 1  "  
+routerLink="/demande_gauche/{{demande.id}}"><img src="./assets/imagesD/faces/msgg.png"  id="iconeSend" alt=""></a>
+
+<a id ="profileP" routerLink="/infosPatient">
+<i class="fa fa-star" aria-hidden="true" ></i> &nbsp; {{demande.generaliste.nomPrenom}}</a>
+        </div>
+      </div>
+    
+    </div>
+    </div>
+</section>
+<section class="nextCards">
+
+</section>
+       
+       
+<div class="nav-container">
+<div class="wrapper">
+<br>
+<nav>
+<div class="img-nav">
+    <img src="./assets/images/navbar.png" >
+</div>
+<ul class="nav-items">
+    <div class="content">
+        <div id="admin"></div>
+            <img src="./assets/images/menu 1.png" id="menu">
+            <div id="menu23">
+            <div id="arrow"></div>
+            <a routerLink="/PageProfile/{{idExpert}}"> {{ 'Profil' | translate }}<i id="firstIcon" class="fa fa-user-md"></i></a>
+            <a routerLink="/chart-Activity-Doctor">{{ 'Mon Activité' | translate }}<i id="secondIcon" class="fa fa-bar-chart-o"></i></a>
+           <!--a ><div style="    width: 159px;
+            height: 1px;
+            position: fixed;
+            top: 181px;
+            left: 82px;
+            background-color: #00000042;"></div></a>
+            <a> <span style="position: fixed; top: 185px; left: 47px;">{{ 'Language' | translate }}</span>
+                <table>
+               <tr>
+                   <td>
+                 Francais&nbsp;&nbsp; <input type="radio"  (change)="service.switchLanguage('fr')" >
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 English &nbsp;&nbsp;<input type="radio" (change)="service.switchLanguage('en')"></td></tr></table>
+                   <!--td *ngFor="let item of lang">
+                    &nbsp;&nbsp;  <input type="radio" [(ngModel)]="language" value="{{item.name}}" name="language"  (change)="service.switchLanguage(item.id)"
+                    aria-checked="item.name===Francais" >
+                   <i> &nbsp;&nbsp;{{item.name}}</i>
+               </td></tr>
+              </table-->
+
+                <!--div class="button-con">
+                    <label id='fr' for='cb1'>
+                     Fr&nbsp;
+                    </label>
+                    <input class='toggle' id='cb1' type='checkbox' (change)="onChange( $event.target.checked)" >
+                    <label class='toggle-button' for='cb1'></label>
+                    <label id='en' for='cb1'>
+                    En
+                    </label>
+                    </div-->  
+                    <!--/a-->
+    </div>
+    </div>
+    <a routerLink="/PageProfile/{{id}}">
+        <img src={{imagePath}} class="img-carree" style="position: fixed;">
+        <div class="pointConnexion"></div>
+    </a>
+    <a routerLink="/PageProfile/{{id}}"  id="nom">{{ 'Bienvenue' | translate }}
+        <span>{{nomPrenomExpert}}</span></a>
+    <li>
+        <div class="budgecard">
+
+    <a  class="notifications"  routerLink="/accueil">
+        <i class="fa fa-bell" aria-hidden="true"></i>  
+        <span class="badge" *ngIf=" avisService.lengthDemandePrincipale !== 0 ">{{avisService.lengthDemandePrincipale}}</span> &nbsp;{{ 'Accueil' | translate }}
+    </a>
+    </div>
+        </li>
+        <img src="./assets/images/Line.svg" id="line1">
+        <li>
+            <a routerLink="/historique"  id="list"><i class="fa fa-history" aria-hidden="true" ></i> {{ 'Historique  des avis' | translate }}</a>
+            </li>
+        <li>
+            <img src="./assets/images/Line.svg" id="line2">
+            
+            <a id="logout"  (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> {{ 'Déconnexion' | translate }}</a>
+
+        </li>
+</ul>
+
+</nav>
+</div>
+</div>  
+     <ng-template #pageVide >
+  <div style="position : absolute ; top: 320px; left: 450px;">
+            <!--h4>{{ 'pas des demande des avis pour le moment ' | translate }}
+            </h4-->
+            <div class="suiteColor"></div>
+            <img id="imagePageDemandes" src="./assets/icones/dem1.png" alt="">
+        </div>  
+</ng-template> 
+    <div style="position: absolute;
+    height: 545px;
+    width: 10px;
+    background-color: #dfe6ff;
+    top: 104px;
+    left: 1354px;"></div> 
+   
+</body>
+</html>
+<!--
+   
+-->

@@ -1,0 +1,33 @@
+#signup{
+    position: absolute;
+    text-decoration: none;
+    top: 340px;
+    left: 11px;
+    font-size: 18px;   
+    cursor: pointer;
+}
+#signup:active{
+   color: #000000;
+    outline: #000000;
+
+}
+#signin{
+    position: absolute;
+    text-decoration: none;
+    top: 340px;
+    font-size: 18px;
+    left: 350px;
+    text-decoration: none;
+    cursor: pointer;
+}
+#signin:active{
+    color: #000000;
+     outline: #000000;
+     text-decoration: none;
+ }
+
+ a{
+    position: absolute;
+    left: 250px;
+    border-radius: 10px;
+ }

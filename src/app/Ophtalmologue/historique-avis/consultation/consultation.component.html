@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+ <title>Welcome</title>
+</head>
+<body>
+   
+    <div class="wrapper1">
+    <div class="form-inner">
+      <div class="form-container">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+          <mat-tab *ngIf="testDemandeAvisGauche !==0  ; else videGaucheeee">
+     
+              <ng-template mat-tab-label>
+                  <mat-icon>
+                    <img src ="./assets/images/eyeA.gif"  width="35px" height="35px" id="icone1" />
+                  </mat-icon>
+                  <i class="fa fa-angle-double-left fa-1x" aria-hidden="true">
+
+                  </i>&nbsp; Oeil Gauche
+              </ng-template>
+          <form [formGroup]="formGroup1" style="height: 600px;">
+            <div class="field">
+              <div class="gallery" >   
+            <a data-fancybox="gallery" href={{image1Gauchee}} *ngIf="image1Gauchee">
+              <img src={{image1Gauchee}} width="230px" height="230px" *ngIf="image1Gauchee"/>  </a>
+              <a data-fancybox="gallery" href={{image2Gauchee}} *ngIf="image2Gauchee">
+                  <img src={{image2Gauchee}} width="230px" height="230px" *ngIf="image2Gauchee"/>  </a>                           
+       <a data-fancybox="gallery" href={{image3Gauchee}} *ngIf="image3Gauchee">
+            <img src={{image3Gauchee}} width="230px" height="230px" *ngIf="image3Gauchee" />  </a>
+       <a data-fancybox="gallery" href={{image4Gauchee}} *ngIf="image4Gauchee">
+            <img src={{image4Gauchee}} width="230px" height="230px"  *ngIf="image4Gauchee"/>  </a>
+       
+    </div>
+    </div> 
+      
+
+  <div id="contain1" *ngIf="testSainBGauche == true ; else oeiGaucheSain ">
+      <label id="maladie" *ngIf="maladieGauche !== null ; else maladieVide"> Maladie : &nbsp;{{maladieGauche}}</label>    
+ 
+   <ng-template #maladieVide>
+    <label id="maladieElse">  Pas avis sur cette demande </label>    
+   </ng-template>
+
+  </div> 
+<ng-template #oeiGaucheSain>
+    <label class="sainOeil"><u> Oeil Gauche Sain </u></label>    
+   </ng-template>
+   <div id="contain2">
+      <label id="niveau" *ngIf="graviteGauche !==0 && maladieGauche !== null"> Niveau : &nbsp;{{graviteGauche}}</label>
+   </div>
+<div id="aviss">
+<div class="md-form amber-textarea active-amber-textarea">
+ 
+  <br>
+  <div ><label id="titre"><b><u>Avis d'expert   </u></b> : &nbsp;</label>
+  <p  id="contenuCom" *ngIf="consultation.autoDetection.avisExpert.commentaireGauche !== null ; else comVide"> &nbsp;{{commentaireGauchee}}</p></div>
+  <ng-template #comVide>
+    <p  id="contenuCom"> pas de commentaire</p>
+  </ng-template>
+</div>
+ </div>
+
+       
+      <!-- </div>
+       <div class="slider-tab1"></div>
+   </div> -->
+   <div class="qui">
+   <button  class="btn btn-danger" routerLink="/historiques/{{idExpert}}/{{idPatient}}">Quitter</button> 
+    </div>
+  </form> 
+</mat-tab>
+<mat-tab [disabled]='true'></mat-tab>
+<mat-tab  [disabled]='true' ></mat-tab>  
+   <mat-tab *ngIf="testDemandeAvisDroite ; else videDroitee"  > 
+<ng-template mat-tab-label >
+<mat-icon><img src ="./assets/images/eyeA.gif"  width="35px" height="35px" id="icone1" />
+</mat-icon>
+Oeil Dorite &nbsp; <i class="fa fa-angle-double-right" aria-hidden="true"></i> 
+</ng-template>
+<form [formGroup]="formGroup2" style="height: 600px;">
+  <div class="field">
+    <div class="gallery" >   
+        <a data-fancybox="gallery" href={{image1Droitee}} *ngIf="image1Droitee">
+            <img src={{image1Droitee}} width="230px" height="230px" *ngIf="image1Droitee"/>  </a>
+            <a data-fancybox="gallery" href={{image2Droitee}} *ngIf="image2Droitee">
+                <img src={{image2Droitee}} width="230px" height="230px" *ngIf="image2Droitee"/>  </a>                           
+     <a data-fancybox="gallery" href={{image3Droitee}} *ngIf="image3Droitee">
+          <img src={{image3Droitee}} width="230px" height="230px" *ngIf="image3Droitee" />  </a>
+     <a data-fancybox="gallery" href={{image4Droitee}} *ngIf="image4Droitee">
+          <img src={{image4Droitee}} width="230px" height="230px"  *ngIf="image4Droitee"/>  </a>
+     
+  </div>
+  </div>  
+      
+     
+  <div id="contain1" *ngIf="testSainBDroite == true ; else oeilDroiteSain">
+      <label id="maladie" *ngIf="maladieDroite !== null  ; else maladieVide2"> Maladie  : &nbsp;{{this.maladieDroite}}</label>    
+      <ng-template #maladieVide2>
+        <label id="maladieElse">  Pas avis sur cette demande </label>    
+       </ng-template>
+      
+    </div> 
+   
+ <ng-template #oeilDroiteSain>
+        <label class="sainOeil"> <u>Oeil Droite Sain </u></label>    
+       </ng-template>
+
+   <div id="contain2">
+      <label id="niveau" *ngIf="maladieDroite !== null && graviteDroite !==0"> Niveau: &nbsp;{{graviteDroite}}</label>
+   </div>
+
+<div id="aviss">
+<div class="md-form amber-textarea active-amber-textarea">
+
+  <br><div ><label id="titre"><b><u>Avis d'expert   </u></b> : &nbsp;</label>
+  <p  id="contenuCom" *ngIf="consultation.autoDetection.avisExpert.commentaireDroite !== null ; else comVide"> &nbsp;{{commentaireDroitee}}</p></div>
+  <ng-template #comVide>
+    <p  id="contenuCom"> pas de commentaire</p>
+  </ng-template>
+</div>
+</div>
+  
+<div class="qui">
+        <button  class="btn btn-danger" routerLink="/historiques/{{idExpert}}/{{idPatient}}">Quitter</button> 
+</div>
+ 
+      </form> 
+    </mat-tab>
+    </mat-tab-group>
+</div>
+</div> 
+</div>
+<div class="nav-container">
+<div class="wrapper">
+<br>
+<nav>
+<div class="img-nav">
+<img src="./assets/images/navbar.png" >
+</div>
+<ul class="nav-items">
+<div class="content">
+<div id="admin"></div>
+<img src="./assets/images/menu 1.png" id="menu">
+<div id="menu23">
+<div id="arrow"></div>
+<a routerLink="/PageProfile">Profile <i id="firstIcon" class="fa fa-user-md"></i></a>
+<a routerLink="/chart-Activity-Doctor">Mon Activité<i id="secondIcon" class="fa fa-bar-chart-o"></i></a>            
+</div>
+</div>
+<a routerLink="/PageProfile/{{id}}">
+<img src={{imagePath}} class="img-carree">
+<div class="pointConnexion"></div>
+</a>
+<a routerLink="/PageProfile/{{id}}"  id="nom">Bienvenue  {{nomPrenomExpert}}</a>
+<li>
+<div class="budgecard">
+
+  <a  class="notifications"  routerLink="/accueil">
+    <i class="fa fa-bell" aria-hidden="true"></i>  
+    <span class="badge" *ngIf=" serviceAvis.lengthDemandePrincipale !== 0 ">{{serviceAvis.lengthDemandePrincipale}}</span> &nbsp;Accueil 
+</a>
+</div>
+</li>
+<img src="./assets/images/Line.svg" id="line1">
+
+<li>
+<a routerLink="/historique"  id="list"><i class="fa fa-history" aria-hidden="true" ></i> Historique  des avis</a>
+</li>
+<li>
+<img src="./assets/images/Line.svg" id="line2">
+
+<a id="logout" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
+<!--<img src="./assets/images/logout.png" id="iconeLogout">-->
+</li>
+</ul>
+
+</nav>
+</div>
+</div> 
+<div style="position: absolute;
+height: 545px;
+width: 10px;
+background-color: #dfe6ff;
+top: 104px;
+left: 1354px;"></div>  
+
+  <!--ng-template #videDroitee>
+    <p  > Oeil Droite</p>
+  </ng-template>
+<p id="videGaucheee"> Oeil Gauche</p-->
+</body> 
+</html>

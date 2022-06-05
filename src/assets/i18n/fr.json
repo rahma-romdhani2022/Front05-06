@@ -1,0 +1,23 @@
+{  
+    "welcome": "Bienvenue",  
+    "review history": "Historique des avis",  
+    "Logout": "Déconnexion",  
+    "no requests for opinions at the moment" : "pas des demande des avis pour le moment" , 
+    "My Activity": "Mon Activité",  
+    "Language": "Language",
+    "Home": "Accueil",  
+    "Profile": "Profil",  
+    "Left eye": "Oeil Gauche",
+    "Right Eye": "Oeil Droite"  ,
+    "Choose the disease":"Choisir le maladie" ,
+    "Nothing":"Rien",
+    "Choose the level":"Choisir le niveau" ,
+    "Disease" :"Maladie",
+    "Level":"Niveau",
+   "Your review has been added" :"Votre avis est bien ajouté",
+   "Save":"Valider",
+   "Cancel":"Quitter",
+   "Add review":"Ajouter Avis",
+   "no disease detected by an AI Model":"rien de maladie detecter par un IA Model",
+    "Name of patient" :"Nom et Prénom de patient"
+}

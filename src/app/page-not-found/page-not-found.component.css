@@ -1,0 +1,51 @@
+#imageNotFound{
+    position: fixed;
+    width: 996px;
+    height: 740px;
+    left: 151px;
+    top: -125px;
+}
+.effacer{
+    width: 366px;
+    background: #fffdfd;
+    height: 131px;
+    left: 481px;
+    position: fixed;
+    top: 393px;
+}
+h1{
+    position: fixed;
+    left: 568px;
+    top: 364px;
+    font-size: 80px;
+    color: #ab104a;
+}
+h2{
+    position: fixed;
+    left: 512px;
+    top: 472px;
+    color: #083f75;}
+    .bouton {
+        text-decoration: none;
+        background: linear-gradient(to bottom right, #03225f, #00b1ff);
+        color: #fff;
+        padding: 10px 60px;
+        border-radius: 30px;
+        box-shadow: 0 3px 7px rgb(0 0 0 / 40%);
+        transition: all 0.2s;
+        position: fixed;
+        top: 539px;
+        left: 531px;
+        width: 313px;
+    }
+    
+    .bouton:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .bouton:active {
+        transform: translateY(1px);
+        box-shadow: 0 3px 2px rgba(0, 0, 0, 0.5);
+    }
+    
